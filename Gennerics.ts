@@ -12,4 +12,15 @@ function swap<U, T>(arg: [U, T]): [T, U] {
   return [arg[1], arg[0]]
 }
 const result2 = swap([1, '2'])
-// result2[0].length
+
+// 泛型深入 不包含length属性怎么办 （约束泛型 约定条件extends关键词）
+// 只要包含length属性就可以了
+interface LAndKey {
+  length: number
+}
+function echoWithLength<T extends  LAndKey>(arg: T): T {
+  console.log(arg.length)
+  return arg
+}
+const arrs = echoWithLength('234')
+const arrs1 = echoWithLength({length: 90})

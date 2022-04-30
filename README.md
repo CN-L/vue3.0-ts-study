@@ -135,3 +135,19 @@ function swap<U, T>(arg: [U, T]): [T, U] {
 const result2 = swap([1, '2'])
 ```
 
+泛型约束（例如只要有length属性的都可满足条件）
+
+```typescript
+// 泛型深入 不包含length属性怎么办 （约束泛型 约定条件extends关键词）
+// 只要包含length属性就可以了
+interface LAndKey {
+  length: number
+}
+function echoWithLength<T extends  LAndKey>(arg: T): T {
+  console.log(arg.length)
+  return arg
+}
+const arrs = echoWithLength('234')
+const arrs1 = echoWithLength({length: 90})
+```
+
