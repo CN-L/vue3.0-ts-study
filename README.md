@@ -124,3 +124,14 @@ const enum KeyCode {
 }
 ```
 
+泛型
+
+`像是占位符或者变量，在使用的时候才传入类型`
+
+```typescript
+function swap<U, T>(arg: [U, T]): [T, U] {
+  return [arg[1], arg[0]]
+}
+const result2 = swap([1, '2'])
+```
+
