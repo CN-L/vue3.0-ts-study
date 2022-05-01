@@ -8,6 +8,7 @@ let isDone: boolean = true
 
 ```typescript
 let arrOfNumber: number[] = [1, 2, 3]
+let arrOfString: Array<string> = ['1', '2', '4']
 ```
 
 方法类型描述
@@ -126,6 +127,8 @@ const enum KeyCode {
 
 泛型
 
+<!--像是：用的时候传入特定类型的容器，用来约束和灵活参数的类型，不是死板的特定类型-->
+
 `像是占位符或者变量，在使用的时候才传入类型`
 
 ```typescript
@@ -149,5 +152,23 @@ function echoWithLength<T extends  LAndKey>(arg: T): T {
 }
 const arrs = echoWithLength('234')
 const arrs1 = echoWithLength({length: 90})
+```
+
+泛型在类中使用
+
+```typescript
+// 泛型在类的使用
+class Queue<T> {
+  private data = [];
+  push(item: T) {
+    return this.data.push(item)
+  }
+  pop(): T {
+    return this.data.shift()
+  }
+}
+const queue = new Queue<number>()
+queue.push(1)
+console.log(queue.pop().toFixed())
 ```
 

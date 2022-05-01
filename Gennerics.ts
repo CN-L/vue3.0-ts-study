@@ -24,3 +24,32 @@ function echoWithLength<T extends  LAndKey>(arg: T): T {
 }
 const arrs = echoWithLength('234')
 const arrs1 = echoWithLength({length: 90})
+
+// 泛型在类的使用
+class Queue<T> {
+  private data = [];
+  push(item: T) {
+    return this.data.push(item)
+  }
+  pop(): T {
+    return this.data.shift()
+  }
+}
+const queue = new Queue<number>()
+queue.push(1)
+console.log(queue.pop().toFixed())
+// 接口的灵活运用 不确定是什么类型时 也可以使用泛型约束
+interface KeyPair<T, U> {
+  key: T
+  value: U 
+}
+let kp1: KeyPair<number, string> = {
+  key: 1,
+  value: '大家好'
+}
+let kp2: KeyPair<string, number>= {
+  key: '9',
+  value: 9
+}
+let arr:Array<number> = [1, 9]
+let arr1: number[] = [1, 3]
