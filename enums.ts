@@ -19,7 +19,7 @@ const enum KeyCode {
   Bottom = '下'
 }
 // 基本使用
-const value = '左'
-if(value === KeyCode.Left) {
+const valueX = '左'
+if(valueX === KeyCode.Left) {
   console.log('go up')
 }
