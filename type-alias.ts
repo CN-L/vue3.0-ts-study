@@ -25,5 +25,5 @@ let personName: Iperson = {
   age: 10
 }
 // 字面量
-const str4: 'name' = 'name'// 这种写法使得name
-const number9: 1 = 1 //numer只能是1
+const strKey: 'name' = 'name'// 这种写法使得name
+const numberKey: 1 = 1 //numer只能是1
