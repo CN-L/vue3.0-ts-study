@@ -1,3 +1,7 @@
+第三方库是否支持TS：如下查询
+
+[typeSearch]: https://www.typescriptlang.org/dt/search?search=
+
 基础数据类型描述
 
 ```typescript
@@ -220,7 +224,7 @@ let personName: Iperson = {
 
 声明文件
 
-<!--例如直接写axios找不到-->
+<!--例如第三方库axios找不到-->
 
 ```typescript
 // .d.ts为声明文件
@@ -228,11 +232,28 @@ let personName: Iperson = {
 // 比如interface function class等等
 // declare 加变量名称 +类型
 // declare function axios(url: string): string
-
+// 假设axios返回是这样的
 interface IAxios {
   get: (url: string) => string
   post: (url: string, data: any) => string
 }
 declare const axios: IAxios
+```
+
+例子：模仿第三方声明文件
+
+<!--calculator有两个参数（字符串和数组）和俩方法（plus、minus）-->
+
+```typescript
+type IOperrator = 'plus' | 'minus'
+interface Icaculator {
+  (operator: IOperrator, numbers: number[]): number;
+  plus: (number: number[]) => number
+  minus: (number: number[]) => number
+}
+// type Icaculator = (operator: IOperrator, numbers: number[]) => number
+declare const calculator: Icaculator
+export default calculator
+//可放在node_moudles下的@key的某个index.d.ts中
 ```
 
