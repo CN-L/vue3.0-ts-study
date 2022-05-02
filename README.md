@@ -257,3 +257,32 @@ export default calculator
 //可放在node_moudles下的@key的某个index.d.ts中
 ```
 
+内置对象
+
+- Omit: 除去类型中的某一项
+
+```typescript
+interface IsPerson {
+ name: string,
+ age: number
+}
+type Iomit = Omit<IsPerson, 'name'>
+let viking: Iomit = {
+  age: 90,
+}
+```
+
+- Partial: 传入的所有类型变为可选
+
+```typescript
+interface IsPerson {
+ name: string,
+ age: number
+}
+// Partial使得传入的类型都变成了可选
+type IPartial = Partial<IsPerson>
+let zsan: IPartial = {
+  name: '李宁'
+} 
+```
+
